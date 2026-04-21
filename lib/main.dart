@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/router/app_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(   // ✅ REQUIRED
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

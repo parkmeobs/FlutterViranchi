@@ -3,12 +3,12 @@ const Map<String, String> en = {
   'SplashscreenText': 'Discover Yourself through Personalized Astrology',
   'Welcome': 'Welcome',
   'WelcomeSubText':
-    'Get daily tips, helpful insights, and a cosmic support to guide your day.',
+      'Get daily tips, helpful insights, and a cosmic support to guide your day.',
   'PersonalizedKundli': 'Personalized Kundli',
   'PersonalizedKundliSubText':
-    '  Accurate Kundli based on your date, time & place of birth',
+      '  Accurate Kundli based on your date, time & place of birth',
   'MatchmakingSubText':
-    'Check your compatibility with your partner using astrology.',
+      'Check your compatibility with your partner using astrology.',
   'Next': 'Next',
   'Getstarted': 'Get Started',
 
@@ -58,13 +58,13 @@ const Map<String, String> en = {
   'Rahukaal': 'Rahu Kaal',
   'GulikaiKaal': 'Gulikai Kaal',
   'AbhijitMuhuratDescription':
-    'It is an auspicious 48-minute period around midday, best for starting new and important work when no other good Muhurat is available.',
+      'It is an auspicious 48-minute period around midday, best for starting new and important work when no other good Muhurat is available.',
   'RahukaalDescription':
-    'It is an inauspicious 1.5-hour period each day. Avoid beginning new ventures or important tasks during this time.',
+      'It is an inauspicious 1.5-hour period each day. Avoid beginning new ventures or important tasks during this time.',
   'GulikaiKaalDescription':
-    'Gulikai Kaal is a daily period linked with delays and obstacles. It’s considered inauspicious for starting new work.',
+      'Gulikai Kaal is a daily period linked with delays and obstacles. It’s considered inauspicious for starting new work.',
   'TodayHoroscope': 'Today’s Horoscope',
-  
+
   //ServiceScreen
   'WhatYouNeed': 'Didn’t find what you need?',
   'ConnectAstrologer': 'Connect with our astrologer.',
@@ -73,7 +73,7 @@ const Map<String, String> en = {
 
   //YogaScreen
   'Heading':
-    'Yoga is a special combination of planets in your birth chart that influences your personality, life events, and relationships.',
+      'Yoga is a special combination of planets in your birth chart that influences your personality, life events, and relationships.',
   'homeTab': 'Home',
   'serviceTab': 'Service',
   'aiAstro': 'Ai Astro',
@@ -116,7 +116,7 @@ const Map<String, String> en = {
   'accountAction': 'Account Actions',
   'NoDetailsFound': 'No Details Found',
   'Pleasefilldetailsforgetpersonalizedkundli':
-    'Please fill details for get personalized kundli',
+      'Please fill details for get personalized kundli',
   'Letsgetstarted': "Let's get started",
   'SelectProfile': 'Select Profile',
 
@@ -128,7 +128,7 @@ const Map<String, String> en = {
   'KundaliAdd': 'Add Profile',
   'LetsGetStarted': "Let's get started",
   'DataRequirementText':
-    'We require your data to show you all the charts and insights',
+      'We require your data to show you all the charts and insights',
   'WhatIsYourName': 'What is your name?',
   'EnterYourName': 'Enter your name',
   'WhatIsYourGender': 'What is your gender?',
@@ -162,15 +162,15 @@ const Map<String, String> en = {
   //Panchang
   'Muhurat': 'Muhurat',
   'TithiDescription':
-    'Shows the Moon’s phase and the day’s mood, whether for beginnings, celebrations, or reflection.',
+      'Shows the Moon’s phase and the day’s mood, whether for beginnings, celebrations, or reflection.',
   'VaarDescription':
-    'Vaar is the weekday, ruled by a planet, each carrying unique energy for activities.',
+      'Vaar is the weekday, ruled by a planet, each carrying unique energy for activities.',
   'NakshatraDescription':
-    'Nakshatra is the star the Moon moves through, shaping the day’s energy and your actions.',
+      'Nakshatra is the star the Moon moves through, shaping the day’s energy and your actions.',
   'KaranaDescription':
-    'Karana divides the day into parts and guides the right time for focused tasks.',
+      'Karana divides the day into parts and guides the right time for focused tasks.',
   'YogaDescription':
-    'It is the Sun–Moon blend that shows if the day is balanced, strong, or challenging.',
+      'It is the Sun–Moon blend that shows if the day is balanced, strong, or challenging.',
   'Sunday': 'Sunday',
   'SundaySpecial': 'Good for leadership and new beginnings',
   'SundayLord': 'Sun',
@@ -199,7 +199,6 @@ const Map<String, String> en = {
   'YOGA': 'YOGA',
   'Tithi': 'Tithi',
   'Start': 'Start',
-  'End': 'End',
   'Diety': 'Diety',
   'NextTithi': 'Next Tithi',
   'Lord': 'Lord',
@@ -219,27 +218,27 @@ const Map<String, String> en = {
   'VeryPoorMatch': 'Very Poor Match',
   'VeryPoorMatchTraits': 'Major differences, frequent conflicts',
   'VeryPoorMatchDescription':
-    'Major differences in values and communication. Unlikely to work without significant effort and may lead to conflicts.',
+      'Major differences in values and communication. Unlikely to work without significant effort and may lead to conflicts.',
   'PoorMatch': 'Poor Match',
   'PoorMatchTraits': 'Noticeable challenges, stress',
   'PoorMatchDescription':
-    'Challenges and misunderstandings are likely. Careful consideration and patience are needed to move forward.',
+      'Challenges and misunderstandings are likely. Careful consideration and patience are needed to move forward.',
   'AverageMatch': 'Average Match',
   'AverageMatchTraits': 'Some common ground, need for effort',
   'AverageMatchDescription':
-    'Some shared interests, but differences require compromise and effort to maintain harmony.',
+      'Some shared interests, but differences require compromise and effort to maintain harmony.',
   'GoodMatch': 'Good Match',
   'GoodMatchTraits': 'Balanced, manageable differences',
   'GoodMatchDescription':
-    'A balanced relationship with manageable differences. Mutual support can lead to a healthy partnership.',
+      'A balanced relationship with manageable differences. Mutual support can lead to a healthy partnership.',
   'VeryGoodMatch': 'Very Good Match',
   'VeryGoodMatchTraits': 'Strong alignment, mutual support',
   'VeryGoodMatchDescription':
-    'Strong compatibility in values and goals. Understanding and support help the relationship flourish.',
+      'Strong compatibility in values and goals. Understanding and support help the relationship flourish.',
   'ExcellentMatch': 'Excellent Match',
   'ExcellentMatchTraits': 'Deep compatibility, long-term vision',
   'ExcellentMatchDescription':
-    'High compatibility with shared vision. Trust and harmony make it ideal for long-term happiness.',
+      'High compatibility with shared vision. Trust and harmony make it ideal for long-term happiness.',
   'Varna': 'Varna',
   'VarnaMatching': 'Social and mental match, shared values',
   'Vasya': 'Vashya',
@@ -261,16 +260,16 @@ const Map<String, String> en = {
   //Doshscreen
   'Dosh': 'Dosha',
   'DoshDescription':
-    'Dosha is a planetary flaw or imbalance in a birth chart believed to bring obstacles and delays in life.',
+      'Dosha is a planetary flaw or imbalance in a birth chart believed to bring obstacles and delays in life.',
   'MangalDosha': 'Mangal Dosha',
   'KaalsarpDosha': 'Kaalsarp Dosha',
   'PitraDosha': 'Pitra Dosha',
   'MangalDoshaDescription':
-    'Mangal Dosha is when Mars in the chart causes delays or issues in marriage.',
+      'Mangal Dosha is when Mars in the chart causes delays or issues in marriage.',
   'KaalsarpDoshaDescription':
-    'Kaalsarp Dosha occurs when all planets fall between Rahu and Ketu, bringing challenges in life.',
+      'Kaalsarp Dosha occurs when all planets fall between Rahu and Ketu, bringing challenges in life.',
   'PitraDoshaDescription':
-    'Pitra Dosha is when ancestral karma in the chart is believed to cause obstacles in life.',
+      'Pitra Dosha is when ancestral karma in the chart is believed to cause obstacles in life.',
   'Yes': 'Yes',
   'No': 'No',
   'MANGLIK': 'MANGLIK',
@@ -283,11 +282,11 @@ const Map<String, String> en = {
   'AntaraDasha': 'Antara Dasha',
   'PratyantaraDasha': 'Pratyantara Dasha',
   'MahaDashaDescription':
-    'The main planetary period in Vedic astrology. It runs for several years and sets the overall theme of life events during that time.',
+      'The main planetary period in Vedic astrology. It runs for several years and sets the overall theme of life events during that time.',
   'AntarDashaDescription':
-    'The sub-period within a Maha Dasha, ruled by another planet. It refines and adds details to the effects of the Maha Dasha.',
+      'The sub-period within a Maha Dasha, ruled by another planet. It refines and adds details to the effects of the Maha Dasha.',
   'PratyantaraDashaDescription':
-    'A further subdivision within Antara Dasha. It shows more specific and shorter-term influences on daily life and events.',
+      'A further subdivision within Antara Dasha. It shows more specific and shorter-term influences on daily life and events.',
   'Dasha_Mars_Abbr': 'Ma',
   'Dasha_Rahu_Abbr': 'Ra',
   'Dasha_Jupiter_Abbr': 'Ju',
@@ -312,19 +311,19 @@ const Map<String, String> en = {
   //Yoga
   'Yoga': 'Yoga',
   'YogaDescription1':
-    'Yoga is a special combination of planets in your birth chart thatinfluences your personality, life events, and relationships.',
+      'Yoga is a special combination of planets in your birth chart thatinfluences your personality, life events, and relationships.',
 
   //SadeSatiscreen
   'SadeSati': 'Sade Sati',
   'SadeSatiReport': 'Sade Sati Report',
   'SadeSatiDescription':
-    'It helps users view their personalized Sade Sati period (past, current, and upcoming)',
+      'It helps users view their personalized Sade Sati period (past, current, and upcoming)',
   'Phase': 'Phase',
 
   //HoraMuhurat
   'HoraMuhurat': 'Hora Muhurat',
   'HoraMuhuratDescription':
-    'It Allows users to view daily time-based planetary hours (Horas) and check auspicious/inauspicious timings for any date.',
+      'It Allows users to view daily time-based planetary hours (Horas) and check auspicious/inauspicious timings for any date.',
 
   //Horoscope
   'Today': 'Today',
@@ -360,7 +359,7 @@ const Map<String, String> en = {
   'ChalitChart': 'Chalit Chart',
   'Chalit': 'chalit',
   'LagnaChartDescription':
-    'Lagna Chart (D1) It tells about your personality, life path, and how you face the world.',
+      'Lagna Chart (D1) It tells about your personality, life path, and how you face the world.',
   'Retrograde': 'Retrograde',
   'Combust': 'Combust',
   'Exalted': 'Exalted',
@@ -375,57 +374,57 @@ const Map<String, String> en = {
   'SeeLess': 'See Less',
   'DownloadKundli': 'Download Kundli',
   'NavamsaChartDescription':
-    'Navamsa Chart (D9) Shows your growth, values, and strengths in marriage and partnership',
+      'Navamsa Chart (D9) Shows your growth, values, and strengths in marriage and partnership',
   'ChalitChartDescription':
-    'Chalit Chart shows how planets influence your life practically by adjusting for house positions and real experiences.',
+      'Chalit Chart shows how planets influence your life practically by adjusting for house positions and real experiences.',
   'AriesLaganText':
-    'Your ascendant sign is Aries, which makes you a natural leader.',
+      'Your ascendant sign is Aries, which makes you a natural leader.',
   'TaurusLaganText':
-    'Your ascendant sign is Taurus, which makes you reliable and steady.',
+      'Your ascendant sign is Taurus, which makes you reliable and steady.',
   'GeminiLaganText':
-    'Your ascendant sign is Gemini, which makes you curious and adaptable.',
+      'Your ascendant sign is Gemini, which makes you curious and adaptable.',
   'CancerLaganText':
-    'Your ascendant sign is Cancer, which makes you caring and protective.',
+      'Your ascendant sign is Cancer, which makes you caring and protective.',
   'LeoLaganText':
-    'Your ascendant sign is Leo, which makes you confident and creative.',
+      'Your ascendant sign is Leo, which makes you confident and creative.',
   'VirgoLaganText':
-    'Your ascendant sign is Virgo, which makes you practical and detail-oriented.',
+      'Your ascendant sign is Virgo, which makes you practical and detail-oriented.',
   'LibraLaganText':
-    'Your ascendant sign is Libra, which makes you diplomatic and charming.',
+      'Your ascendant sign is Libra, which makes you diplomatic and charming.',
   'ScorpioLaganText':
-    'Your ascendant sign is Scorpio, which makes you intense and determined.',
+      'Your ascendant sign is Scorpio, which makes you intense and determined.',
   'SagittariusLaganText':
-    'Your ascendant sign is Sagittarius, which makes you adventurous and optimistic.',
+      'Your ascendant sign is Sagittarius, which makes you adventurous and optimistic.',
   'CapricornLaganText':
-    'Your ascendant sign is Capricorn, which makes you disciplined and responsible.',
+      'Your ascendant sign is Capricorn, which makes you disciplined and responsible.',
   'AquariusLaganText':
-    'Your ascendant sign is Aquarius, which makes you innovative and independent.',
+      'Your ascendant sign is Aquarius, which makes you innovative and independent.',
   'PiscesLaganText':
-    'Your ascendant sign is Pisces, which makes you compassionate and imaginative.',
+      'Your ascendant sign is Pisces, which makes you compassionate and imaginative.',
   'AriesNavamText':
-    'Your ascendant sign is Aries, which gives you inner courage and a pioneering spirit in relationships and personal growth.',
+      'Your ascendant sign is Aries, which gives you inner courage and a pioneering spirit in relationships and personal growth.',
   'TaurusNavamText':
-    'Your ascendant sign is Taurus, which makes you steady, patient, and focused on building lasting emotional security.',
+      'Your ascendant sign is Taurus, which makes you steady, patient, and focused on building lasting emotional security.',
   'GeminiNavamText':
-    'Your ascendant sign is Gemini, which makes you mentally agile and open to learning from relationships and shared experiences.',
+      'Your ascendant sign is Gemini, which makes you mentally agile and open to learning from relationships and shared experiences.',
   'CancerNavamText':
-    'Your ascendant sign is Cancer, which gives you deep emotional sensitivity and a nurturing approach to partnerships.',
+      'Your ascendant sign is Cancer, which gives you deep emotional sensitivity and a nurturing approach to partnerships.',
   'LeoNavamText':
-    'Your ascendant sign is Leo, which brings inner confidence, generosity, and a desire to express your heart fully in relationships.',
+      'Your ascendant sign is Leo, which brings inner confidence, generosity, and a desire to express your heart fully in relationships.',
   'VirgoNavamText':
-    'Your ascendant sign is Virgo, which makes you analytical, service-oriented, and concerned with improving yourself and others.',
+      'Your ascendant sign is Virgo, which makes you analytical, service-oriented, and concerned with improving yourself and others.',
   'LibraNavamText':
-    'Your ascendant sign is Libra, which gives you a refined sense of balance, fairness, and harmony in close bonds and spiritual growth.',
+      'Your ascendant sign is Libra, which gives you a refined sense of balance, fairness, and harmony in close bonds and spiritual growth.',
   'ScorpioNavamText':
-    'Your ascendant sign is Scorpio, which gives you emotional depth, resilience, and a transformative approach to intimacy and trust.',
+      'Your ascendant sign is Scorpio, which gives you emotional depth, resilience, and a transformative approach to intimacy and trust.',
   'SagittariusNavamText':
-    'Your ascendant sign is Sagittarius, which makes you optimistic, adventurous, and spiritually driven in relationships and personal pursuits.',
+      'Your ascendant sign is Sagittarius, which makes you optimistic, adventurous, and spiritually driven in relationships and personal pursuits.',
   'CapricornNavamText':
-    'Your ascendant sign is Capricorn, which gives you discipline, perseverance, and a responsible approach to partnership and life’s challenges.',
+      'Your ascendant sign is Capricorn, which gives you discipline, perseverance, and a responsible approach to partnership and life’s challenges.',
   'AquariusNavamText':
-    'Your ascendant sign is Aquarius, which makes you idealistic, open-minded, and drawn to unconventional bonds and spiritual ideals.',
+      'Your ascendant sign is Aquarius, which makes you idealistic, open-minded, and drawn to unconventional bonds and spiritual ideals.',
   'PiscesNavamText':
-    'Your ascendant sign is Pisces, which gives you compassion, empathy, and a deep yearning for spiritual connection and unconditional love.',
+      'Your ascendant sign is Pisces, which gives you compassion, empathy, and a deep yearning for spiritual connection and unconditional love.',
   'Personality1': 'Personality',
   'Wealth1': 'Wealth',
   'Communication1': 'Communication',
@@ -458,12 +457,10 @@ const Map<String, String> en = {
   'PlanetsOnThisHouse': 'Planets on this house',
   'Degree': 'Degree',
   'Longitude': 'Longitude',
-  'Nakshatra': 'Nakshatra',
   'Pada': 'Pada',
   'Rashi': 'Rashi',
-  'Lord': 'Lord',
   'Previous': 'Previous',
-  
+
   //KundliChartRead
   'PositionOfHouses': 'Position of houses and their traits',
   'Position': 'Position',
@@ -485,22 +482,22 @@ const Map<String, String> en = {
   'HouseTheme12': 'Moksha, Isolation, Foreign Settlement',
   'MeaningTermAscendant': 'Ascendant (As)',
   'MeaningDescAscendant':
-    'The sign rising on the eastern horizon at the time of birth; it shows your personality, appearance, and how you start things.',
+      'The sign rising on the eastern horizon at the time of birth; it shows your personality, appearance, and how you start things.',
   'MeaningTermExalted': 'Exalted',
   'MeaningDescExalted':
-    'A planet is in its strongest and most positive position, giving good results.',
+      'A planet is in its strongest and most positive position, giving good results.',
   'MeaningTermDebilitated': 'Debilitated',
   'MeaningDescDebilitated':
-    'A planet is in its weakest position, causing challenges or reduced effectiveness.',
+      'A planet is in its weakest position, causing challenges or reduced effectiveness.',
   'MeaningTermVargottam': 'Vargottam',
   'MeaningDescVargottam':
-    'A planet is in the same sign in both the main chart and divisional chart, making its influence stronger.',
+      'A planet is in the same sign in both the main chart and divisional chart, making its influence stronger.',
   'MeaningTermRetrograde': 'Retrograde',
   'MeaningDescRetrograde':
-    'A planet appears to move backward, often giving mixed or unusual results.',
+      'A planet appears to move backward, often giving mixed or unusual results.',
   'MeaningTermCombust': 'Combust',
   'MeaningDescCombust':
-    'A planet is too close to the Sun, weakening its power and causing problems in its effects.',
+      'A planet is too close to the Sun, weakening its power and causing problems in its effects.',
   'PlanetNameSun': 'Sun',
   'PlanetKeywordsSun': 'Power, Authority, Ego',
   'PlanetNameMoon': 'Moon',
@@ -597,13 +594,13 @@ const Map<String, String> en = {
   'PaymentSuccess': 'Your payment was successful.',
   'AppointmentSuccess': 'You have successfully booked an appointment',
   'KundliNote':
-    'You’ve unlocked your Premium Kundli. Please download to view full report',
+      'You’ve unlocked your Premium Kundli. Please download to view full report',
   'BackToHome': 'Back to Home',
 
   //DeleteModal
   'DeleteProfile': 'Delete Profile',
   'DeleteMessage':
-    'Are you sure you want to delete this profile? This action cannot be undone.',
+      'Are you sure you want to delete this profile? This action cannot be undone.',
   'downloadTitle': 'Kundli Downloaded',
   'downloadDesc': 'Your kundli Downloaded Successfully.',
   'okay': 'Okay',
@@ -613,13 +610,13 @@ const Map<String, String> en = {
   'First2': 'First 5',
   'QuestionFree': 'Question Free',
   'description':
-    'Ask anything and receive AI-powered astrology guidance tailored to your kundli.',
+      'Ask anything and receive AI-powered astrology guidance tailored to your kundli.',
   'StartFree': 'Start Free',
   'LeavingSoon': 'Leaving Soon?',
   'LeavingSoondesc':
-    'Your current conversation will end, but you can come back anytime.',
+      'Your current conversation will end, but you can come back anytime.',
   'LeavingSoondesc2':
-    'Your AI Vedic Astrology Consultation is Just One Click Away, To Change your Life.',
+      'Your AI Vedic Astrology Consultation is Just One Click Away, To Change your Life.',
 
   //AI Astrology subscription screen
   'Pricing': 'Pricing',
@@ -631,7 +628,7 @@ const Map<String, String> en = {
 
   //GetStartedScreen
   'DescriptionAi1':
-    ' Blending ancient astrology with modern AI for personalized guidance.',
+      ' Blending ancient astrology with modern AI for personalized guidance.',
   'GetStarted': 'Get Started',
 
   //SelectProfileModal
@@ -649,7 +646,7 @@ const Map<String, String> en = {
   'StartAsking': 'Start Asking',
   'RedirectToHomeIn': 'We will redirect you to Chat in',
   'PaymentFailedDes':
-    'Your transaction was not completed. Kindly try again or use a different payment method.',
+      'Your transaction was not completed. Kindly try again or use a different payment method.',
   'PLAN_CREDITS': 'We’ve added {credits} questions to your current plan.',
   'Writefeedback': 'Write feedback',
   'Report': 'Report',

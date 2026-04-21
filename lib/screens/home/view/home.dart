@@ -5,15 +5,14 @@ import 'package:flutter_application_1/screens/home/view/widgets/header.dart';
 import 'package:flutter_application_1/riverpod/user_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Home extends StatefulWidget {
+class Home extends ConsumerStatefulWidget {
   const Home({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  ConsumerState<Home> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
-  bool isLoading = true;
+class _HomeState extends ConsumerState<Home> {  bool isLoading = true;
   bool refreshing = false;
 
   bool showProfileModal = false;
@@ -106,30 +105,33 @@ class _HomeState extends State<Home> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Stack(
-          children: [
-            /// 🔹 Main Content
-            RefreshIndicator(
-              onRefresh: onRefresh,
-              child: ListView(
-                padding: const EdgeInsets.symmetric(vertical: 2),
-                children: [
-  Header(string: string), // ✅ pass your map here
+Widget build(BuildContext context) {
+  final userState = ref.watch(userProvider);
+  final string = userState.strings;
 
-                  if (userDetail?['dob'] != null) const DailyHoroscope(),
-                ],
-              ),
+  return Scaffold(
+    backgroundColor: Colors.white,
+    body: SafeArea(
+      child: Stack(
+        children: [
+          RefreshIndicator(
+            onRefresh: onRefresh,
+            child: ListView(
+              padding: const EdgeInsets.symmetric(vertical: 2),
+              children: [
+                Header(string: string), // ✅ now correct
+
+                if (userDetail?['dob'] != null)
+                  const DailyHoroscope(),
+              ],
             ),
+          ),
 
-            /// 🔹 Loader Overlay
-            if (isLoading) const Center(child: CircularProgressIndicator()),
-          ],
-        ),
+          // if (isLoading)
+          //   const Center(child: CircularProgressIndicator()),
+        ],
       ),
-    );
-  }
+    ),
+  );
+}
 }

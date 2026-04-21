@@ -199,7 +199,6 @@ const Map<String, String> hi = {
   'YOGA': 'योग',
   'Tithi': 'तिथि',
   'Start': 'प्रारंभ',
-  'End': 'समाप्ति',
   'Diety': 'देवता',
   'NextTithi': 'अगली तिथि',
   'Lord': 'स्वामी',
