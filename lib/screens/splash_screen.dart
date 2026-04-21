@@ -2,12 +2,15 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/animated_logo.dart';
 import 'package:flutter_application_1/constants/app_images.dart';
+import 'package:go_router/go_router.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
+
 class _SplashScreenState extends State<SplashScreen> {
   bool isConnected = true;
 
@@ -18,23 +21,19 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> initApp() async {
-    // ✅ 1. Track Event (like PostHog / AppsFlyer)
-
-
-    // ✅ 4. Simulate Redux Rehydration (get token)
     final token = "";
 
-    // ✅ 5. Delay (Splash duration)
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 3));
 
-    // ✅ 6. Navigate
+    if (!mounted) return;
 
-    if (token != null) {
-      Navigator.pushReplacementNamed(context, '/home');
+    if (token.isEmpty) {
+      context.go('/pager');
     } else {
-      Navigator.pushReplacementNamed(context, '/login');
+      context.go('/login');
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,10 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Positioned.fill(
             child: Opacity(
               opacity: 0.95,
-              child: Image.asset(
-                AppImages.appBackground,
-                fit: BoxFit.cover,
-              ),
+              child: Image.asset(AppImages.appBackground, fit: BoxFit.cover),
             ),
           ),
 
@@ -56,11 +52,7 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const AnimatedLogo(
-                  logo: 90,
-                  inner: 218,
-                  outer: 240,
-                ),
+                const AnimatedLogo(logo: 90, inner: 218, outer: 240),
 
                 const SizedBox(height: 20),
 

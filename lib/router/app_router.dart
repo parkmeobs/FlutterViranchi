@@ -8,42 +8,41 @@ import 'package:flutter_application_1/screens/login/view/login.dart';
 import 'package:flutter_application_1/screens/pager_view/pager_view.dart';
 import 'package:go_router/go_router.dart';
 import '../screens/splash_screen.dart';
-import 'auth_routes.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
-    initialLocation: '/',
-  routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => const SplashScreen(),
-    ),
-
-    GoRoute(
-      path: '/login',
-      builder: (context, state) => const Login(),
-    ),
-
-    GoRoute(
-      path: '/pager',
-      builder: (context, state) => const PagerView(),
-    ),
-
-    ShellRoute(
-      builder: (context, state, child) {
-        return BottomNavShell(child: child);
-      },
+      initialLocation: '/',
       routes: [
         GoRoute(
-          path: '/home',
-          builder: (context, state) => const Home(),
+          path: '/',
+          builder: (context, state) => const SplashScreen(),
         ),
-        ...serviceRoutes,
-        ...aiAstroRoutes,
-        ...expertRoutes,
-        ...profileRoutes,
+
+        GoRoute(
+          path: '/login',
+          builder: (context, state) => const Login(),
+        ),
+
+        GoRoute(
+          path: '/pager',
+          builder: (context, state) => const PagerView(),
+        ),
+
+        ShellRoute(
+          builder: (context, state, child) {
+            return BottomNavShell(child: child);
+          },
+          routes: [
+            GoRoute(
+              path: '/home',
+              builder: (context, state) => const Home(),
+            ),
+            ...serviceRoutes,
+            ...aiAstroRoutes,
+            ...expertRoutes,
+            ...profileRoutes,
+          ],
+        ),
       ],
-    ),
-  ],
-  );
+    );
 }
