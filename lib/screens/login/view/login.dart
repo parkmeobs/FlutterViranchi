@@ -1,19 +1,23 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart'; // 1. Added Riverpod
 import 'package:pinput/pinput.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import 'package:flutter_application_1/components/custom_button_with_image.dart';
 import 'package:flutter_application_1/constants/app_images.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_application_1/screens/login/viewmodal/loginviewmodal.dart'; // Import your viewmodel
 
-class Login extends StatefulWidget {
+// 2. Changed to ConsumerStatefulWidget
+class Login extends ConsumerStatefulWidget {
   const Login({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  ConsumerState<Login> createState() => _LoginState();
 }
 
-class _LoginState extends State<Login> with CodeAutoFill {
+class _LoginState extends ConsumerState<Login> with CodeAutoFill {
   final TextEditingController mobileController = TextEditingController();
   final TextEditingController otpController = TextEditingController();
 
@@ -24,13 +28,12 @@ class _LoginState extends State<Login> with CodeAutoFill {
   int timer = 60;
   bool isResendDisabled = true;
   Timer? countdownTimer;
-
   bool hasSubmitted = false;
 
   @override
   void initState() {
     super.initState();
-    listenForCode(); // OTP auto-read
+    listenForCode();
   }
 
   @override
@@ -40,22 +43,18 @@ class _LoginState extends State<Login> with CodeAutoFill {
     super.dispose();
   }
 
-  // ✅ OTP Auto Read
   @override
   void codeUpdated() {
     if (code != null && code!.length == 4 && !hasSubmitted) {
       hasSubmitted = true;
-
       otpController.text = code!;
       handleSubmitOtp(code!);
     }
   }
 
-  // ✅ Start Timer
   void startTimer() {
     timer = 60;
     isResendDisabled = true;
-
     countdownTimer?.cancel();
     countdownTimer = Timer.periodic(const Duration(seconds: 1), (timerObj) {
       if (timer == 0) {
@@ -67,8 +66,8 @@ class _LoginState extends State<Login> with CodeAutoFill {
     });
   }
 
-  // ✅ Login API (Mock)
-  void handleLogin() {
+  // ✅ REAL LOGIN API CALL
+  void handleLogin() async {
     final number = mobileController.text;
 
     if (!RegExp(r'^[6-9]\d{9}$').hasMatch(number)) {
@@ -76,26 +75,53 @@ class _LoginState extends State<Login> with CodeAutoFill {
       return;
     }
 
-    setState(() {
-      error = '';
-      showOtp = true;
-    });
+    setState(() => error = '');
 
-    startTimer();
+    // Get App Hash for SMS Autofill (equivalent to your appHash in JS)
+    String appHash = await SmsAutoFill().getAppSignature;
+
+    // Call the ViewModel
+    final success = await ref.read(authViewModelProvider.notifier).handleLogin(
+          number,
+          appHash,
+        );
+
+        print("login sueccess"+"$success");
+
+
+    if (success) {
+      setState(() => showOtp = true);
+      startTimer();
+    } else {
+      setState(() => error = "Failed to send OTP. Try again.");
+    }
   }
 
-  // ✅ Submit OTP (Mock)
-  void handleSubmitOtp(String otp) {
+  // ✅ REAL SUBMIT OTP CALL
+  void handleSubmitOtp(String otp) async {
     if (otp.length != 4) {
       setState(() => otpError = "Enter valid OTP");
       return;
     }
 
     setState(() => otpError = '');
-    context.go('/home');
 
-    // TODO: Call API
-    print("OTP Verified: $otp");
+    // Call verify in ViewModel
+    await ref.read(authViewModelProvider.notifier).submitOtp(
+          mobileController.text,
+          otp,
+        );
+
+    // Watch the result from state
+    final authState = ref.read(authViewModelProvider);
+    
+    if (authState.token != null) {
+      // Success! Navigate to home
+      if (mounted) context.go('/home');
+    } else {
+      setState(() => otpError = "Invalid OTP");
+      hasSubmitted = false;
+    }
   }
 
   void resendOtp() {
@@ -110,7 +136,6 @@ class _LoginState extends State<Login> with CodeAutoFill {
     return "$m:$s";
   }
 
-  // ✅ Back Handling
   Future<bool> onBackPressed() async {
     if (showOtp) {
       setState(() {
@@ -125,6 +150,9 @@ class _LoginState extends State<Login> with CodeAutoFill {
 
   @override
   Widget build(BuildContext context) {
+    // 3. Listen to the auth state (loading/token)
+    final authState = ref.watch(authViewModelProvider);
+
     return WillPopScope(
       onWillPop: onBackPressed,
       child: Scaffold(
@@ -135,8 +163,6 @@ class _LoginState extends State<Login> with CodeAutoFill {
             child: Column(
               children: [
                 const SizedBox(height: 40),
-
-                // ✅ LOGO
                 Column(
                   children: [
                     Image.asset(AppImages.swastik, height: 120),
@@ -144,58 +170,33 @@ class _LoginState extends State<Login> with CodeAutoFill {
                     Image.asset(AppImages.viranchiText, height: 30),
                   ],
                 ),
-
                 const SizedBox(height: 40),
 
-                // =============================
-                // ✅ OTP VIEW
-                // =============================
                 if (showOtp) ...[
-                  const Text(
-                    "Enter Code",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-
+                  const Text("Enter Code", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 10),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text("Sent to +91 ${mobileController.text}"),
                       IconButton(
                         icon: const Icon(Icons.edit, size: 18),
-                        onPressed: () {
-                          setState(() {
-                            showOtp = false;
-                          });
-                        },
+                        onPressed: () => setState(() => showOtp = false),
                       ),
                     ],
                   ),
-
                   const SizedBox(height: 20),
-
-                  // ✅ OTP Input
                   Pinput(
                     controller: otpController,
                     length: 4,
-                    onCompleted: (value) {
-                      handleSubmitOtp(value);
-                    },
+                    onCompleted: (value) => handleSubmitOtp(value),
                   ),
-
                   if (otpError.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.only(top: 10),
-                      child: Text(
-                        otpError,
-                        style: const TextStyle(color: Colors.red),
-                      ),
+                      child: Text(otpError, style: const TextStyle(color: Colors.red)),
                     ),
-
                   const SizedBox(height: 20),
-
-                  // Timer / Resend
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -204,31 +205,20 @@ class _LoginState extends State<Login> with CodeAutoFill {
                           ? Text(formatTime(timer))
                           : GestureDetector(
                               onTap: resendOtp,
-                              child: const Text(
-                                "Resend",
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  decoration: TextDecoration.underline,
-                                ),
-                              ),
+                              child: const Text("Resend", style: TextStyle(color: Colors.blue, decoration: TextDecoration.underline)),
                             ),
                     ],
                   ),
-
                   const Spacer(),
-
-                  ElevatedButton(
-                    onPressed: () => handleSubmitOtp(otpController.text),
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(double.infinity, 50),
-                    ),
-                    child: const Text("Submit"),
-                  ),
-                ]
-                // =============================
-                // ✅ LOGIN VIEW
-                // =============================
-                else ...[
+                  // 4. Added Loading Spinner
+                  authState.verifyOtpLoading 
+                    ? const CircularProgressIndicator()
+                    : ElevatedButton(
+                        onPressed: () => handleSubmitOtp(otpController.text),
+                        style: ElevatedButton.styleFrom(minimumSize: const Size(double.infinity, 50)),
+                        child: const Text("Submit"),
+                      ),
+                ] else ...[
                   TextField(
                     controller: mobileController,
                     keyboardType: TextInputType.number,
@@ -239,31 +229,17 @@ class _LoginState extends State<Login> with CodeAutoFill {
                       border: const OutlineInputBorder(),
                     ),
                   ),
-
                   const SizedBox(height: 10),
-
-                  const Text(
-                    "By signing up, you agree to Terms & Privacy Policy",
-                    style: TextStyle(fontSize: 12),
-                  ),
-
+                  const Text("By signing up, you agree to Terms & Privacy Policy", style: TextStyle(fontSize: 12)),
                   const Spacer(),
-
-                  // ElevatedButton(
-                  //   onPressed: handleLogin,
-                  //   style: ElevatedButton.styleFrom(
-                  //       minimumSize: const Size(double.infinity, 50)),
-                  //   child: const Text("Login"),
-                  // ),
-                  CustomButtonWithImage(
-                    text: "Login",
-                    onPressed: handleLogin,
-                    rightIcon: Image.asset(
-                      AppImages.arrow,
-                      height: 15,
-                      width: 15,
-                    ),
-                  ),
+                  // 5. Added Loading Spinner for Login
+                  authState.loginLoading 
+                    ? const CircularProgressIndicator()
+                    : CustomButtonWithImage(
+                        text: "Login",
+                        onPressed: handleLogin,
+                        rightIcon: Image.asset(AppImages.arrow, height: 15, width: 15),
+                      ),
                 ],
               ],
             ),
