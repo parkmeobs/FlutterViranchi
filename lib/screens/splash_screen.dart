@@ -1,17 +1,20 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/animated_logo.dart';
 import 'package:flutter_application_1/constants/app_images.dart';
+import 'package:flutter_application_1/screens/login/viewmodal/loginviewmodal.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  ConsumerState<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreenState extends ConsumerState<SplashScreen> {
   bool isConnected = true;
 
   @override
@@ -21,16 +24,18 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> initApp() async {
-    final token = "";
+    // final token = "";
+    final token = ref.read(authViewModelProvider).token;
 
+    print("token in splash: $token");
     await Future.delayed(const Duration(seconds: 3));
 
     if (!mounted) return;
 
-    if (token.isEmpty) {
-      context.go('/pager');
-    } else {
+    if (token == null || token.isEmpty) {
       context.go('/login');
+    } else {
+      context.go('/home'); // or home screen
     }
   }
 
