@@ -64,10 +64,10 @@ class Profile extends ConsumerStatefulWidget {
 class _ProfileState extends ConsumerState<Profile> {
   @override
   Widget build(BuildContext context) {
-    final userLanguage = ref.watch(userProvider).userLanguage;
+    // final userLanguage = ref.watch(userProvider).userLanguage;
 
     void handleLanguage(String lang) {
-      ref.read(userProvider.notifier).setUserLanguage(lang);
+      // ref.read(userProvider.notifier).setUserLanguage(lang);
     }
 
     return Scaffold(
@@ -112,76 +112,76 @@ class _ProfileState extends ConsumerState<Profile> {
                                   // mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     /// 🔹 EN Button
-                                    GestureDetector(
-                                      onTap: () => handleLanguage('en'),
-                                      child: Container(
-                                        width: 40,
-                                        height: 35,
+                                    // GestureDetector(
+                                    //   onTap: () => handleLanguage('en'),
+                                    //   child: Container(
+                                    //     width: 40,
+                                    //     height: 35,
 
-                                        decoration: BoxDecoration(
-                                          color: userLanguage == 'en'
-                                              ? GlobalColor.primary
-                                              : Colors.white,
-                                          border: Border.all(
-                                            color: userLanguage == 'en'
-                                                ? GlobalColor.primary
-                                                : Colors.grey.shade300,
-                                            width: 1,
-                                          ),
-                                          borderRadius: BorderRadius.circular(
-                                            5,
-                                          ),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            'EN',
-                                            style: TextStyle(
-                                              color: userLanguage == 'en'
-                                                  ? Colors.white
-                                                  : Colors.black,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
+                                    //     decoration: BoxDecoration(
+                                    //       color: userLanguage == 'en'
+                                    //           ? GlobalColor.primary
+                                    //           : Colors.white,
+                                    //       border: Border.all(
+                                    //         color: userLanguage == 'en'
+                                    //             ? GlobalColor.primary
+                                    //             : Colors.grey.shade300,
+                                    //         width: 1,
+                                    //       ),
+                                    //       borderRadius: BorderRadius.circular(
+                                    //         5,
+                                    //       ),
+                                    //     ),
+                                    //     child: Center(
+                                    //       child: Text(
+                                    //         'EN',
+                                    //         style: TextStyle(
+                                    //           color: userLanguage == 'en'
+                                    //               ? Colors.white
+                                    //               : Colors.black,
+                                    //           fontWeight: FontWeight.w600,
+                                    //         ),
+                                    //       ),
+                                    //     ),
+                                    //   ),
+                                    // ),
 
                                     // const SizedBox(width: 10),
 
                                     /// 🔹 HI Button
-                                    GestureDetector(
-                                      onTap: () => handleLanguage('hi'),
-                                      child: Container(
-                                        width: 40,
-                                        height: 35,
+                                    // GestureDetector(
+                                    //   onTap: () => handleLanguage('hi'),
+                                    //   child: Container(
+                                    //     width: 40,
+                                    //     height: 35,
 
-                                        decoration: BoxDecoration(
-                                          color: userLanguage == 'hi'
-                                              ? GlobalColor.primary
-                                              : Colors.white,
-                                          border: Border.all(
-                                            color: userLanguage == 'hi'
-                                                ? GlobalColor.primary
-                                                : Colors.grey.shade300,
-                                            width: 1,
-                                          ),
-                                          borderRadius: BorderRadius.circular(
-                                            5,
-                                          ),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            'हि',
-                                            style: TextStyle(
-                                              color: userLanguage == 'hi'
-                                                  ? Colors.white
-                                                  : Colors.black,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
+                                    //     decoration: BoxDecoration(
+                                    //       color: userLanguage == 'hi'
+                                    //           ? GlobalColor.primary
+                                    //           : Colors.white,
+                                    //       border: Border.all(
+                                    //         color: userLanguage == 'hi'
+                                    //             ? GlobalColor.primary
+                                    //             : Colors.grey.shade300,
+                                    //         width: 1,
+                                    //       ),
+                                    //       borderRadius: BorderRadius.circular(
+                                    //         5,
+                                    //       ),
+                                    //     ),
+                                    //     child: Center(
+                                    //       child: Text(
+                                    //         'हि',
+                                    //         style: TextStyle(
+                                    //           color: userLanguage == 'hi'
+                                    //               ? Colors.white
+                                    //               : Colors.black,
+                                    //           fontWeight: FontWeight.w600,
+                                    //         ),
+                                    //       ),
+                                    //     ),
+                                    //   ),
+                                    // ),
                                   ],
                                 ),
                               )

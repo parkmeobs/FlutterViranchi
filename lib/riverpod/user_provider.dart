@@ -23,18 +23,18 @@ class UserState {
   }
 }
 
-class UserNotifier extends StateNotifier<UserState> {
-  UserNotifier() : super(UserState());
+// class UserNotifier extends StateNotifier<UserState> {
+//   UserNotifier() : super(UserState());
 
-  // mirrors your setUserLanguage reducer
-  void setUserLanguage(String lang) {
-    state = state.copyWith(
-      userLanguage: lang,
-      strings: getLanguagePack(lang),
-    );
-  }
-}
+//   // mirrors your setUserLanguage reducer
+//   void setUserLanguage(String lang) {
+//     state = state.copyWith(
+//       userLanguage: lang,
+//       strings: getLanguagePack(lang),
+//     );
+//   }
+// }
 
-final userProvider = StateNotifierProvider<UserNotifier, UserState>((ref) {
-  return UserNotifier();
-});
+// final userProvider = StateNotifierProvider<UserNotifier, UserState>((ref) {
+//   return UserNotifier();
+// });

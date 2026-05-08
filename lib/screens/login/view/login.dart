@@ -81,20 +81,20 @@ class _LoginState extends ConsumerState<Login> with CodeAutoFill {
     String appHash = await SmsAutoFill().getAppSignature;
 
     // Call the ViewModel
-    final success = await ref.read(authViewModelProvider.notifier).handleLogin(
-          number,
-          appHash,
-        );
+    // final success = await ref.read(authViewModelProvider.notifier).handleLogin(
+    //       number,
+    //       appHash,
+    //     );
 
-        print("login sueccess"+"$success");
+    //     print("login sueccess"+"$success");
 
 
-    if (success) {
-      setState(() => showOtp = true);
-      startTimer();
-    } else {
-      setState(() => error = "Failed to send OTP. Try again.");
-    }
+    // if (success) {
+    //   setState(() => showOtp = true);
+    //   startTimer();
+    // } else {
+    //   setState(() => error = "Failed to send OTP. Try again.");
+    // }
   }
 
   // ✅ REAL SUBMIT OTP CALL
@@ -107,21 +107,21 @@ class _LoginState extends ConsumerState<Login> with CodeAutoFill {
     setState(() => otpError = '');
 
     // Call verify in ViewModel
-    await ref.read(authViewModelProvider.notifier).submitOtp(
-          mobileController.text,
-          otp,
-        );
+    // await ref.read(authViewModelProvider.notifier).submitOtp(
+    //       mobileController.text,
+    //       otp,
+    //     );
 
-    // Watch the result from state
-    final authState = ref.read(authViewModelProvider);
+    // // Watch the result from state
+    // final authState = ref.read(authViewModelProvider);
     
-    if (authState.token != null) {
-      // Success! Navigate to home
-      if (mounted) context.go('/home');
-    } else {
-      setState(() => otpError = "Invalid OTP");
-      hasSubmitted = false;
-    }
+    // if (authState.token != null) {
+    //   // Success! Navigate to home
+    //   if (mounted) context.go('/home');
+    // } else {
+    //   setState(() => otpError = "Invalid OTP");
+    //   hasSubmitted = false;
+    // }
   }
 
   void resendOtp() {
@@ -151,7 +151,7 @@ class _LoginState extends ConsumerState<Login> with CodeAutoFill {
   @override
   Widget build(BuildContext context) {
     // 3. Listen to the auth state (loading/token)
-    final authState = ref.watch(authViewModelProvider);
+    // final authState = ref.watch(authViewModelProvider);
 
     return WillPopScope(
       onWillPop: onBackPressed,
@@ -211,13 +211,13 @@ class _LoginState extends ConsumerState<Login> with CodeAutoFill {
                   ),
                   const Spacer(),
                   // 4. Added Loading Spinner
-                  authState.verifyOtpLoading 
-                    ? const CircularProgressIndicator()
-                    : ElevatedButton(
-                        onPressed: () => handleSubmitOtp(otpController.text),
-                        style: ElevatedButton.styleFrom(minimumSize: const Size(double.infinity, 50)),
-                        child: const Text("Submit"),
-                      ),
+                  // authState.verifyOtpLoading 
+                  //   ? const CircularProgressIndicator()
+                  //   : ElevatedButton(
+                  //       onPressed: () => handleSubmitOtp(otpController.text),
+                  //       style: ElevatedButton.styleFrom(minimumSize: const Size(double.infinity, 50)),
+                  //       child: const Text("Submit"),
+                  //     ),
                 ] else ...[
                   TextField(
                     controller: mobileController,
@@ -233,13 +233,13 @@ class _LoginState extends ConsumerState<Login> with CodeAutoFill {
                   const Text("By signing up, you agree to Terms & Privacy Policy", style: TextStyle(fontSize: 12)),
                   const Spacer(),
                   // 5. Added Loading Spinner for Login
-                  authState.loginLoading 
-                    ? const CircularProgressIndicator()
-                    : CustomButtonWithImage(
-                        text: "Login",
-                        onPressed: handleLogin,
-                        rightIcon: Image.asset(AppImages.arrow, height: 15, width: 15),
-                      ),
+                  // authState.loginLoading 
+                  //   ? const CircularProgressIndicator()
+                  //   : CustomButtonWithImage(
+                  //       text: "Login",
+                  //       onPressed: handleLogin,
+                  //       rightIcon: Image.asset(AppImages.arrow, height: 15, width: 15),
+                  //     ),
                 ],
               ],
             ),

@@ -25,7 +25,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
 
   Future<void> initApp() async {
     // final token = "";
-    final token = ref.read(authViewModelProvider).token;
+    final token ="nnn";
 
     print("token in splash: $token");
     await Future.delayed(const Duration(seconds: 3));

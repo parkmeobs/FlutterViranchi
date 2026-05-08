@@ -106,8 +106,8 @@ class _HomeState extends ConsumerState<Home> {  bool isLoading = true;
 
   @override
 Widget build(BuildContext context) {
-  final userState = ref.watch(userProvider);
-  final string = userState.strings;
+  // final userState = ref.watch(userProvider);
+  // final string = userState.strings;
 
   return Scaffold(
     backgroundColor: Colors.white,
@@ -119,7 +119,7 @@ Widget build(BuildContext context) {
             child: ListView(
               padding: const EdgeInsets.symmetric(vertical: 2),
               children: [
-                Header(string: string), // ✅ now correct
+                // Header(string: string), // ✅ now correct
 
                 if (userDetail?['dob'] != null)
                   const DailyHoroscope(),

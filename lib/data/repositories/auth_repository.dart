@@ -1,30 +1,90 @@
+
 import 'package:flutter_application_1/data/services/api_service.dart';
 import 'package:flutter_application_1/data/services/api_endpoints.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AuthRepository {
-  final ApiService _apiService;
-  AuthRepository(this._apiService);
+class LoginResponseModel {
+  final String status;
+  final String message;
 
-  Future<Map<String, dynamic>> login(String mobile, String appHash) async {
+  LoginResponseModel({
+    required this.status,
+    required this.message,
+  });
+
+  factory LoginResponseModel.fromJson(
+    Map<String, dynamic> json,
+  ) {
+    return LoginResponseModel(
+      status: json['STATUS'] ?? '',
+      message: json['MESSAGE'] ?? '',
+    );
+  }
+}
+
+
+
+class VerifyOtpResponseModel {
+  final String status;
+  final String message;
+  final String token;
+
+  VerifyOtpResponseModel({
+    required this.status,
+    required this.message,
+    required this.token,
+  });
+
+  factory VerifyOtpResponseModel.fromJson(
+    Map<String, dynamic> json,
+  ) {
+    return VerifyOtpResponseModel(
+      status: json['STATUS'] ?? '',
+      message: json['MESSAGE'] ?? '',
+      token: json['token'] ?? '',
+    );
+  }
+}
+
+
+  final randomJokeProvider = FutureProvider<LoginResponseModel>((ref) async {
     final response = await _apiService.post(
-      ApiEndpoints.loginSendOtp, 
-      body: { // ⬅️ Add 'body:' here
+      ApiEndpoints.loginSendOtp,
+      body: {
         'mobile': mobile,
         'country_code': '91',
         'appHash': appHash,
       },
     );
-    return response; // Note: In the merged ApiService, we already return response.data
-  }
 
-  Future<String> verifyOtp(String mobile, String otp) async {
+  return LoginResponseModel.fromJson(response);
+});
+
+
+class AuthRepository {
+  final ApiService _apiService;
+
+  AuthRepository(this._apiService);
+
+  /// SEND OTP
+
+
+
+
+  /// VERIFY OTP
+  Future<VerifyOtpResponseModel> verifyOtp(
+    String mobile,
+    String otp,
+  ) async {
+
     final response = await _apiService.post(
-      ApiEndpoints.verifyOtp, 
-      body: { // ⬅️ Add 'body:' here
+      ApiEndpoints.verifyOtp,
+      body: {
         'mobile': mobile,
         'otp': otp,
       },
     );
-    return response['token']; 
+
+    return VerifyOtpResponseModel.fromJson(response);
   }
 }
